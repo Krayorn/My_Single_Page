@@ -9,10 +9,10 @@ function redirectIfLoggedIn(){
     if(isLoggedIn()) {
         $('#menu').show();
         $('#user_name').html(sessionStorage.getItem('user'));
-        $('#loaded').html("");
+        $('#loaded').load("home.html #home_page");
     } else {
         $('#menu').hide();
-        $('#loaded').load("form.html form");
+        $('#loaded').load("form.html fieldset");
     }
 }
 
@@ -30,7 +30,7 @@ $(function(){
     });
 
     $('#user_name').click(function(){
-        $('#loaded').load("user.html header", function(){
+        $('#loaded').load("user.html #user_info", function(){
             $('#user_pseudo').html(sessionStorage.getItem('user'));
         });
     });
@@ -48,6 +48,6 @@ $(function(){
     });
 
     $('#home').click(function(){
-        $('#loaded').html("");
+        $('#loaded').load("home.html #home_page");
     });
 });
